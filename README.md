@@ -193,9 +193,9 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=5    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 ```
 ```
-<center><img alt="graph" src="/assets/1_A-D6cuz1WofJOR81z1yWJQ.png">  </img></center>
+<center><img alt="graph" src="1_A-D6cuz1WofJOR81z1yWJQ.png">  </img></center>
 
-<center><img alt="server" src="/assets/firefox_KQcO3dKJqD.png"> </img></center>
+<center><img alt="server" src="firefox_KQcO3dKJqD.png"> </img></center>
 
  ## Conclusion
 
