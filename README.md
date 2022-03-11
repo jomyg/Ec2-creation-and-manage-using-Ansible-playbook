@@ -31,6 +31,7 @@ pip3 install boto3
 pip3 install botocore
 ```
 <center><img alt="graph" src="1_A-D6cuz1WofJOR81z1yWJQ.png"> </img></center>
+
 ### Behind the code : hosts file
 ```sh
 ~]$ cat hosts
