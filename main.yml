@@ -81,4 +81,4 @@
           project: "{{ project }}"
         count_tag:
           Name: "{{ project }}-webserver"
-        exact_count: 2
+        exact_count: 2 
