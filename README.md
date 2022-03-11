@@ -61,7 +61,7 @@ aws_secret_access_key = aPXYPZjpC4Vlm9yXASB536hH/kE/Y1Lm8
     instance_ami: "ami-0e0ff68cb8e9a188a"
   tasks:
 
-    - name: "AWS Infra - Creating Ssh-Key Pair"
+    - name: "AWS Infra - Creating Ssh-Key Pair"                                          ### For keypair creation
       amazon.aws.ec2_key:
         name: "{{project}}"
         state: present
@@ -76,10 +76,10 @@ aws_secret_access_key = aPXYPZjpC4Vlm9yXASB536hH/kE/Y1Lm8
       when: Check_keypair_status.changed == true
       copy:
         content: "{{ Check_keypair_status.key.private_key}}"
-        dest: "{{ project }}.pem"
+        dest: "{{ project }}.pem"                                                         ### This will create the keypair pem file and download to our local PC
         mode: 0400
 
-    - name:  " AWS Infra - Creating webserver security group"
+    - name:  " AWS Infra - Creating webserver security group"                             ### Creating the secuirty group with 80 and 443
       amazon.aws.ec2_group:
         name: "{{ project }}-webserver"
         description: "allows 80,443 from all"
@@ -100,7 +100,7 @@ aws_secret_access_key = aPXYPZjpC4Vlm9yXASB536hH/kE/Y1Lm8
           project: "{{ project }}"
       register: webserver
 
-    - name:  " AWS Infra - Creating another remote security group"
+    - name:  " AWS Infra - Creating another remote security group"                       ### Creating the secuirty group with 20
       ec2_group:
         name: "{{ project }}-remote"
         description: "allows 22 from all"
@@ -118,7 +118,7 @@ aws_secret_access_key = aPXYPZjpC4Vlm9yXASB536hH/kE/Y1Lm8
       register: remote
 
 
-    - name:  " AWS Infra - Creating Ec2 Instance For Webserver"
+    - name:  " AWS Infra - Creating Ec2 Instance For Webserver"                         ### Creating the EC2 Instance
       ec2:
         region: "{{ region }}"
         key_name: "{{ Check_keypair_status.key.name}}"
@@ -133,6 +133,6 @@ aws_secret_access_key = aPXYPZjpC4Vlm9yXASB536hH/kE/Y1Lm8
           project: "{{ project }}"
         count_tag:
           Name: "{{ project }}-webserver"
-        exact_count: 2
+        exact_count: 2                                           ### This will limit the EC2 creation from re-running the playbook. Other wise ansible will recreate the EC2
  ```
 
