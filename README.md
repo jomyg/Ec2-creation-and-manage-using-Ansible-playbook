@@ -136,3 +136,59 @@ aws_secret_access_key = aPXYPZjpC4Vlm9yXASB536hH/kE/Y1Lm8
         exact_count: 2                                           ### This will limit the EC2 creation from re-running the playbook. Other wise ansible will recreate the EC2
  ```
 
+
+### Sample output while running the playbook
+
+```
+ ~]$ ansible-playbook -i hosts main.yml
+
+PLAY [AWS EC2 creation using Ansible-playbook] *************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [AWS Infra - Creating Ssh-Key Pair] *******************************************************************************************************************************
+changed: [localhost]
+
+TASK [AWS Infra - Copying the private Key Of Uber keypair to local PC] *************************************************************************************************
+changed: [localhost]
+
+TASK [AWS Infra - Creating webserver security group] *******************************************************************************************************************
+changed: [localhost]
+
+TASK [AWS Infra - Creating another remote security group] **************************************************************************************************************
+changed: [localhost]
+
+TASK [AWS Infra - Creating Ec2 Instance For Webserver] *****************************************************************************************************************
+changed: [localhost]
+
+PLAY RECAP *************************************************************************************************************************************************************
+
+```
+> I have tweaked the exact_count: 2 to 3 and it will create one more. 
+```
+ ~]$ ansible-playbook -i hosts main.yml
+
+PLAY [AWS EC2 creation using Ansible-playbook] *************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [AWS Infra - Creating Ssh-Key Pair] *******************************************************************************************************************************
+ok: [localhost]
+
+TASK [AWS Infra - Copying the private Key Of Uber keypair to local PC] *************************************************************************************************
+skipping: [localhost]
+
+TASK [AWS Infra - Creating webserver security group] *******************************************************************************************************************
+ok: [localhost]
+
+TASK [AWS Infra - Creating another remote security group] **************************************************************************************************************
+ok: [localhost]
+
+TASK [AWS Infra - Creating Ec2 Instance For Webserver] *****************************************************************************************************************
+changed: [localhost]
+
+PLAY RECAP *************************************************************************************************************************************************************
+localhost                  : ok=5    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+```
