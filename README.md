@@ -15,7 +15,7 @@ Simple ansible playbook for creating a amazon Ec2 with all required resoruces.
 - python3
 - python3-pip
 - boto3
-- awscli with latest version
+- awscli with latest version 
 -----
 
 ### Ansible installation 
@@ -48,6 +48,19 @@ $ ansible -i hosts localhost -m setup | grep "ansible_python_version"
 [Credentials]
 aws_access_key_id = AKIASH75KESC43FJ
 aws_secret_access_key = aPXYPZjpC4Vlm9yXASB536hH/kE/Y1Lm8
+```
+You can also try using environment variable like below. So that the ansible can access the keys
+```
+~]# AWS_ACCESS_KEY='JDHEJEIJWHWWJWJEUEN'
+~]# AWS_SECRET_KEY='eeBSJWM/e8IXMbejwnwkNbjwjwnwn'
+~]# echo $AWS_ACCESS_KEY
+JDHEJEIJWHWWJWJEUEN
+~]# echo $AWS_SECRET_KEY
+eeBSJWM/e8IXMbejwnwkNbjwjwnwn
+~# bash -c 'echo $AWS_ACCESS_KEY'
+[root@]# bash -c 'echo $AWS_SECRET_KEY'
+[root@~]# export AWS_ACCESS_KEY
+[root@ ~]# export AWS_SECRET_KEY
 ```
 ### Behind the code : main.yml
 ```sh
