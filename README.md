@@ -30,7 +30,7 @@ ansible-galaxy connection install amazon.aws -y
 pip3 install boto3
 pip3 install botocore
 ```
-
+<center><img alt="graph" src="1_A-D6cuz1WofJOR81z1yWJQ.png"> </img></center>
 ### Behind the code : hosts file
 ```sh
 ~]$ cat hosts
@@ -192,8 +192,6 @@ changed: [localhost]
 PLAY RECAP *************************************************************************************************************************************************************
 localhost                  : ok=5    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 ```
-
-<center><img alt="graph" src="1_A-D6cuz1WofJOR81z1yWJQ.png">  </img></center>
 
 <center><img alt="server" src="firefox_KQcO3dKJqD.png"> </img></center>
 
