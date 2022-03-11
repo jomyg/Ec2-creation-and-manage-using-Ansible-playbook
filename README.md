@@ -42,7 +42,12 @@ localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python3
 $ ansible -i hosts localhost -m setup | grep "ansible_python_version"
         "ansible_python_version": "3.7.10"
  ```
-
+### Behind the code : .boto file
+```sh
+[Credentials]
+aws_access_key_id = AKIASH75KESC43FJ
+aws_secret_access_key = aPXYPZjpC4Vlm9yXASB536hH/kE/Y1Lm8
+```
 ### Behind the code : main.yml
 ```sh
 ---
