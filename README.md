@@ -26,7 +26,7 @@ amazon-linux-extras install ansible2 -y
 yum install python3
 yum install python3-pip
 pip install awscli --upgrade
-ansible-galaxy connection install amazon.aws -y
+ansible-galaxy collection install amazon.aws
 pip3 install boto3
 pip3 install botocore
 ```
