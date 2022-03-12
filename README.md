@@ -9,7 +9,7 @@
 Simple ansible playbook for creating a amazon Ec2 with all required resoruces.  
 
 ----
-## Pre-Requests
+## Prerequisite
 - Need to install ansible2 on Master node to run
 - AWS CLI Programmatic user
 - python3
@@ -28,6 +28,7 @@ yum install python3-pip
 pip install awscli --upgrade
 ansible-galaxy collection install amazon.aws
 pip3 install boto3
+pip3 install boto
 pip3 install botocore
 ```
  <center><img alt="graph" src="ansible-aws-logo.png"> </img></center>
